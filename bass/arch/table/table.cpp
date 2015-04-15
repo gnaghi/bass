@@ -24,6 +24,7 @@ bool BassTable::assemble(const string& statement) {
 
   if(s.match("arch ?*")) {
     s.ltrim<1>("arch ");
+	s.strip();
     string data;
     if(0);
     else if(s == "reset") data = "";
@@ -54,6 +55,8 @@ bool BassTable::assemble(const string& statement) {
     return true;
   }
 
+  s.removespace();
+  
   unsigned pc = this->pc();
 
   for(auto& opcode : table) {
@@ -80,7 +83,6 @@ bool BassTable::assemble(const string& statement) {
     if(mismatch) continue;
 
     for(auto& format : opcode.format) {
-
       switch(format.type) {
         case Format::Type::Static: {
           writeBits(format.data, format.bits);

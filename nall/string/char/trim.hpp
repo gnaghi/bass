@@ -57,6 +57,26 @@ char* strip(char* s) {
   return s;
 }
 
+char* removespace(char* s) {
+  int i=0,j=0;
+  char *buftemp= new char[strlen(s)];
+
+ while('\0' != s[i])
+ {
+   if ((s[i] ==' ') && (s[i+1] != '\0') )
+   {
+     buftemp[i]=s[j];
+     i++;j++;
+     while((s[j] ==' '))
+        j++;
+   }
+   buftemp[i++]=s[j++];
+ }
+ buftemp[j]='\0';
+ strcpy(s,buftemp);
+ delete buftemp;
+}
+
 }
 
 #endif

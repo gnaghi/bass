@@ -114,6 +114,12 @@ string& string::strip() {
   return *this;
 }
 
+string& string::removespace() {
+  nall::removespace(data());
+  resize(length());
+  return *this;
+}
+
 maybe<unsigned> string::find(rstring key) const { return strpos(data(), key); }
 maybe<unsigned> string::ifind(rstring key) const { return istrpos(data(), key); }
 maybe<unsigned> string::qfind(rstring key) const { return qstrpos(data(), key); }

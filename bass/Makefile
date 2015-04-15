@@ -11,7 +11,12 @@ all: dir $(objects)
 	$(compiler) -o $(application) $(objects) $(link)
 
 dir:
+ifeq ($(OS),Windows_NT)
+	@if exist obj rd /s /q obj
+	@mkdir obj
+else
 	@mkdir -p obj
+endif
 
 obj/bass.o: bass.cpp bass.hpp $(call rwildcard,core/*) $(call rwildcard,arch/*)
 	$(compiler) $(cppflags) $(flags) -o obj/bass.o -c bass.cpp

@@ -48,6 +48,7 @@ template<unsigned Limit = 0> inline char* rtrim(char* str, const char* key = " "
 template<unsigned Limit = 0> inline char* trim(char* str, const char* key = " ");
 template<unsigned Limit = 0> inline char* trim(char* str, const char* lkey, const char* rkey);
 inline char* strip(char* s);
+inline char* removespace(char* s);
 
 //utf8.hpp
 struct UTF8 {

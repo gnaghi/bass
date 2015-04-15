@@ -106,6 +106,7 @@ public:
   template<unsigned limit = 0> inline string& trim(rstring key, rstring rkey);
 
   inline string& strip();
+  inline string& removespace();
 
   inline maybe<unsigned> find(rstring key) const;
   inline maybe<unsigned> ifind(rstring key) const;
